@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Skolengo – ENT</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital@0;1&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			:root {
+				--blue-dark: #2d3f6e;
+				--blue-mid: #3a5298;
+				--blue-btn: #1a6fce;
+				--blue-btn-h: #155cad;
+				--blue-link: #1a6fce;
+				--gray-bg: #eef0f3;
+				--gray-border: #cdd3db;
+				--text-main: #222;
+				--text-muted: #555;
+				--text-label: #1a2540;
+				--white: #fff;
+				--radius: 4px;
+				--shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+			}
+
+			body {
+				font-family: "Source Sans 3", sans-serif;
+				background: var(--gray-bg);
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
+
+			/* ── HEADER ── */
+			header {
+				background: var(--blue-dark);
+				padding: 18px 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 14px;
+			}
+
+			.logo-wrap {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 12px;
+				text-decoration: none;
+			}
+
+			/* SVG logo reproduced from memory / simplified */
+			.logo-icon {
+				width: 54px;
+				height: 54px;
+			}
+
+			.logo-text {
+				color: var(--white);
+			}
+			.logo-text .brand {
+				font-size: 2rem;
+				font-weight: 700;
+				letter-spacing: 2px;
+				display: block;
+				line-height: 1;
+			}
+			.logo-text .tagline {
+				font-size: 0.72rem;
+				letter-spacing: 0.08em;
+				opacity: 0.85;
+				display: block;
+			}
+
+			/* ── MAIN ── */
+			main {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 40px 16px;
+			}
+
+			.card {
+				background: var(--white);
+				border: 1px solid #d5d9e0;
+				padding: 36px 44px 32px;
+				width: 100%;
+				max-width: 510px;
+				animation: fadeUp 0.45s ease both;
+			}
+
+			@keyframes fadeUp {
+				from {
+					opacity: 0;
+					transform: translateY(18px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.card h1 {
+				font-size: 0.75rem;
+				font-weight: 700;
+				color: var(--text-label);
+				margin-bottom: 8px;
+			}
+
+			.subtitle {
+				font-size: 0.9rem;
+				font-style: italic;
+				color: var(--text-muted);
+				margin-bottom: 26px;
+			}
+
+			/* form */
+			.field {
+				margin-bottom: 20px;
+			}
+
+			label {
+				display: block;
+				font-size: 0.88rem;
+				font-weight: 600;
+				color: var(--text-label);
+				margin-bottom: 5px;
+			}
+
+			.required {
+				font-weight: 600;
+			}
+
+			input[type="text"],
+			input[type="password"] {
+				width: 100%;
+				padding: 5px 6px;
+				border: 1px solid var(--gray-border);
+				font-size: 0.95rem;
+				font-family: inherit;
+				color: var(--text-main);
+				background: #f5f7fa;
+				outline: none;
+				transition:
+					border-color 0.2s,
+					box-shadow 0.2s;
+			}
+
+			input[type="text"]:focus,
+			input[type="password"]:focus {
+				border-color: var(--blue-mid);
+				background: var(--white);
+			}
+
+			.pwd-wrap {
+				position: relative;
+			}
+
+			.pwd-wrap input {
+				padding-right: 44px;
+			}
+
+			.toggle-pwd {
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				transform: translateY(-50%);
+				background: none;
+				border: none;
+				cursor: pointer;
+				color: #7a8599;
+				padding: 4px;
+				display: flex;
+				align-items: center;
+				transition: color 0.2s;
+			}
+			.toggle-pwd:hover {
+				color: var(--blue-mid);
+			}
+
+			.btn-row {
+				display: flex;
+				justify-content: flex-end;
+				margin-top: 6px;
+				margin-bottom: 20px;
+			}
+
+			button.valider {
+				background: var(--blue-btn);
+				color: var(--white);
+				font-family: inherit;
+				font-size: 0.65rem;
+				font-weight: normal;
+				border: none;
+				padding: 5px 7px;
+				cursor: pointer;
+				transition:
+					background 0.18s,
+					transform 0.1s;
+			}
+
+			button.valider:hover {
+				background: var(--blue-btn-h);
+			}
+			button.valider:active {
+				transform: scale(0.97);
+			}
+
+			.security-note {
+				font-size: 0.72rem;
+				color: bl;
+				line-height: 1.5;
+				margin-bottom: 15px;
+			}
+
+			u {
+				border-bottom: 1px solid dashed black;
+			}
+
+			.forgot {
+				display: block;
+				text-align: center;
+				font-size: 0.88rem;
+				color: var(--blue-link);
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+			.forgot:hover {
+				color: var(--blue-btn-h);
+				text-decoration: underline;
+			}
+
+			.legal {
+				font-size: 0.60rem;
+				color: black;
+				line-height: 1.55;
+				padding-top: 16px;
+			}
+
+			/* error message */
+			.error-msg {
+				display: none;
+				background: #fde8e8;
+				border: 1px solid #f5b5b5;
+				color: #c0392b;
+				font-size: 0.85rem;
+				padding: 8px 12px;
+				margin-bottom: 16px;
+			}
+
+			.error-msg.show {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="logo-wrap" href="#">
+				<!-- Skolengo logo mark (simplified SVG) -->
+				<img src="./assets/logo.png" alt="" />
+			</a>
+		</header>
+
+		<main>
+			<div class="card">
+				<h1>Bienvenue sur votre Environnement Numérique de Travail</h1>
+				<p class="subtitle">Entrez votre identifiant et votre mot de passe.</p>
+
+				<div class="error-msg" id="errorMsg" role="alert">
+					Identifiant ou mot de passe incorrect. Veuillez réessayer.
+				</div>
+
+				<div class="field">
+					<label for="username"
+						>Identifiant <span class="required">(*)</span></label
+					>
+					<input
+						type="text"
+						id="username"
+						name="username"
+						autocomplete="username"
+						placeholder=""
+					/>
+				</div>
+
+				<div class="field">
+					<label for="password"
+						>Mot de passe <span class="required">(*)</span></label
+					>
+					<div class="pwd-wrap">
+						<input
+							type="password"
+							id="password"
+							name="password"
+							autocomplete="current-password"
+						/>
+						<button
+							type="button"
+							class="toggle-pwd"
+							id="togglePwd"
+							aria-label="Afficher / masquer le mot de passe"
+						>
+							<!-- eye icon -->
+							<svg
+								id="eyeIcon"
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+								<circle cx="12" cy="12" r="3" />
+							</svg>
+							<svg
+								id="eyeOffIcon"
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								style="display: none"
+							>
+								<path
+									d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"
+								/>
+								<path
+									d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"
+								/>
+								<line x1="1" y1="1" x2="23" y2="23" />
+							</svg>
+						</button>
+					</div>
+				</div>
+
+				<div class="btn-row">
+					<button class="valider" id="submitBtn" type="button">Valider</button>
+				</div>
+
+				<p class="security-note">
+					Pour des raisons de sécurité, déconnectez-vous avant de quitter l'<u
+						>ENT</u
+					>
+					et fermez votre navigateur web.
+				</p>
+
+				<a href="#" class="forgot">Mot de passe oublié</a>
+
+				<p class="legal">
+					En tant qu'utilisateur de l'ENT et conformément à la Loi «
+					Informatique et Libertés » du 6 janvier 1978, vous disposez d'un droit
+					d'accès et de rectification aux informations qui vous concernent. Pour
+					exercer ce droit, si vous dépendez d'un établissement, adressez-vous
+					au Chef d'établissement, dans tous les autres cas, contactez
+					l'administrateur du site inter établissement.
+				</p>
+			</div>
+		</main>
+
+		<script>
+			// Toggle password visibility
+			const pwdInput = document.getElementById("password");
+			const toggleBtn = document.getElementById("togglePwd");
+			const eyeOn = document.getElementById("eyeIcon");
+			const eyeOff = document.getElementById("eyeOffIcon");
+
+			toggleBtn.addEventListener("click", () => {
+				const show = pwdInput.type === "password";
+				pwdInput.type = show ? "text" : "password";
+				eyeOn.style.display = show ? "none" : "block";
+				eyeOff.style.display = show ? "block" : "none";
+			});
+
+			// Submit handler (demo: shows error if fields empty)
+			document.getElementById("submitBtn").addEventListener("click", () => {
+				const u = document.getElementById("username").value.trim();
+				const p = document.getElementById("password").value.trim();
+				const err = document.getElementById("errorMsg");
+
+				if (!u || !p) {
+					err.textContent =
+						"Veuillez remplir l'identifiant et le mot de passe.";
+					err.classList.add("show");
+					return;
+				}
+
+				// Simulated auth check
+				err.classList.remove("show");
+				const btn = document.getElementById("submitBtn");
+				btn.textContent = "Connexion…";
+				btn.disabled = true;
+
+				setTimeout(() => {
+					// Demo: always show error (no real backend)
+					err.textContent =
+						"Identifiant ou mot de passe incorrect. Veuillez réessayer.";
+					err.classList.add("show");
+					btn.textContent = "Valider";
+					btn.disabled = false;
+				}, 900);
+			});
+
+			// Allow Enter key to submit
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Enter") document.getElementById("submitBtn").click();
+			});
+		</script>
+	</body>
+</html>
